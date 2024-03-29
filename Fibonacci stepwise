@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+    <style>
+        *{
+            margin: 0;padding: 0;box-sizing: border-box;
+        }
+        body{
+            background: #131223;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        div{
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            gap: 10px;
+            font-size: 1.2rem;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="how many value you want" value="">
+    <button type="button">check</button>
+    <div></div>
+
+    <script>
+
+        let val=document.querySelector('input')
+        let main=document.querySelector('div')
+        let btn=document.querySelector('button')
+
+        let storage=[0,1]
+
+        let text_list=['taking initial values 0 , 1 default','it will look like this in array',`array_name=[${storage}]`,'next we apply some loop','for(i = 2; i <= your_submitted_value; i++)','we here take formula -> array_name[i - 1] + array_name[i - 2]','eg. -> array_name[2 - 1] + array_name[2 - 2]','-> array_name[1] + array_name[0]','-> 1 + 0  -> 1','and using push method of array we push the answer in array','it will look like this -> array_name.push(array_name[i - 1] + array_name[i - 2])']
+
+        btn.addEventListener("click",(e)=>{
+            e.preventDefault()
+
+            main.innerText=''
+            storage=[0,1]
+
+            let num=parseInt(val.value)
+            console.log(num,typeof(num))
+
+            if (num > 1){
+                let initvalue=1
+                let total=0
+                let temp
+                
+                for(i=0; i<text_list.length; i++){
+                    
+                    let span=document.createElement('span');
+                    let spantext= document.createTextNode(`${text_list[i]}`)
+                    span.appendChild(spantext)
+                    main.appendChild(span)
+                    let br=document.createElement('br')
+                    main.appendChild(br)
+                }
+
+                let br=document.createElement('br')
+                main.appendChild(br)
+
+                for(i=2;i<=num;i++){
+
+                    storage.push(storage[i - 1] + storage[i - 2])
+                    
+                    span=document.createElement('span');
+                    spantext= document.createTextNode(`-> we pushed the answer: ${storage[i - 1] + storage[i - 2]}`)
+                    span.appendChild(spantext)
+                    main.appendChild(span)
+                    br=document.createElement('br')
+                    main.appendChild(br)
+
+                    span=document.createElement('span');
+                    spantext= document.createTextNode(`in array now look like this: [${storage}]`)
+                    span.appendChild(spantext)
+                    main.appendChild(span)
+                    br=document.createElement('br')
+                    main.appendChild(br)
+                }
+                main.appendChild(br)
+
+                spantext= document.createTextNode(`End here thank you for using fibonacchi calculator thing`)
+                span.appendChild(spantext)
+                main.appendChild(span)
+
+                br=document.createElement('br')
+                main.appendChild(br)
+
+                span=document.createElement('span');
+                spantext= document.createTextNode(`for last this is how look using entries() method -> temp_array=array_name.entries() `)
+                span.appendChild(spantext)
+                main.appendChild(span)
+                br=document.createElement('br')
+                main.appendChild(br)
+                
+                span=document.createElement('span');
+                spantext= document.createTextNode(`for(let entries of temp_array) `)
+                span.appendChild(spantext)
+                main.appendChild(span)
+                br=document.createElement('br')
+                main.appendChild(br)
+
+                storage =storage.entries()
+                for(let entries of storage){
+                    span=document.createElement('span');
+                    spantext= document.createTextNode(`${entries}`)
+                    span.appendChild(spantext)
+                    main.appendChild(span)
+                }
+            }
+            else{
+                span=document.createElement('span');
+                spantext= document.createTextNode(`The input value in empty pls fill first`)
+                span.appendChild(spantext)
+                main.appendChild(span)
+            }
+        })
+    </script>
+</body>
+</html>
