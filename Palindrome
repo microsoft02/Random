@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;box-sizing: border-box;
+        }
+        body{
+            background: #231232;
+            padding: 20px;
+        }
+        div{
+            display: flex;
+            color:#fff;
+            flex-direction: column;
+            gap: 20px;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="enter your word" value="">
+    <button type="button">check</button>
+    <div></div>
+    
+    <script>
+        let btn= document.querySelector('button')
+        let answer=document.querySelector('div')
+        
+        btn.addEventListener('click',(e)=>{
+            e.preventDefault()
+            let word=document.querySelector('input').value
+            console.log(word)
+
+            answer.innerText=''
+
+            let smallcase= word.toLowerCase();
+
+            let span=document.createElement('span');
+            let spantext= document.createTextNode(`first we take your word ${word} and convert it all to lowercase it will be "${smallcase}"`)
+            span.appendChild(spantext)
+            answer.appendChild(span)
+
+            let temp=smallcase.split('')
+
+            span=document.createElement('span');
+            spantext= document.createTextNode(`now we split or seperate each word it will be look like this in array [${temp}]`)
+            span.appendChild(spantext)
+            answer.appendChild(span)
+
+            temp=temp.reverse()
+
+            span=document.createElement('span');
+            spantext= document.createTextNode(`now we reverse this array that look like this in array [${temp}]`)
+            span.appendChild(spantext)
+            answer.appendChild(span)
+
+            temp=temp.join('')
+
+            span=document.createElement('span');
+            spantext= document.createTextNode(`last we join that each element and it will look like this "${temp}"`)
+            span.appendChild(spantext)
+            answer.appendChild(span)
+
+            span=document.createElement('span');
+            spantext= document.createTextNode(`final we compare your word and reversed word and answer is`)
+            span.appendChild(spantext)
+            answer.appendChild(span)
+            
+            if (smallcase === temp){
+                span=document.createElement('span');
+                spantext= document.createTextNode(`${smallcase} is palindrome`)
+                span.appendChild(spantext)
+                answer.appendChild(span)
+
+                span=document.createElement('span');
+                spantext= document.createTextNode(`thanks for using palidrome calculator thing`);
+                span.appendChild(spantext)
+                answer.appendChild(span)
+            }
+            else{
+                span=document.createElement('span');
+                spantext= document.createTextNode(`${smallcase} is not palindrome`)
+                span.appendChild(spantext)
+                answer.appendChild(span)
+
+                span=document.createElement('span');
+                spantext= document.createTextNode(`thanks for using palindrome calculator thing`);
+                span.appendChild(spantext)
+                answer.appendChild(span)
+            }
+        }
+    )  
+    </script>
+</body>
+</html>
