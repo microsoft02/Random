@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;box-sizing: border-box;
+        }
+        body{
+            background: #231232;
+            padding: 20px;
+        }
+        div{
+            display: flex;
+            color:#fff;
+            flex-direction: column;
+            gap: 20px;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="enter your value" value="">
+    <button type="button">check</button>
+    <div class="answer"></div>
+
+    <Script>
+        let btn= document.querySelector('button')
+
+        let answer = document.querySelector('.answer')
+        btn.addEventListener('click',(e)=>{
+            e.preventDefault();
+            answer.innerHTML = '' //for reset when click on button for next time
+
+            let input_value = document.querySelector('input').value
+            let chat=[`first we take your value ${input_value}`,`we use formula -> your_value % 10`]
+        
+            // if (true) -> send to main funtion which anything you pass in condition is condition is true if it is not empty or false or 0
+            if (isNaN(input_value) || input_value ===''){
+                let span = document.createElement('span')
+                    let spantext= document.createTextNode(`Enter Valid number`)
+                    span.appendChild(spantext)
+                    answer.appendChild(span)
+            }else{
+                for(let i=0; i <= chat.length-1; i++){
+                    let span = document.createElement('span')
+                    let spantext= document.createTextNode(`${chat[i]}`)
+                    span.appendChild(spantext)
+                    answer.appendChild(span)
+                }
+
+                let tempNumber = input_value;
+                let numlength = input_value.length;
+                input_value=parseInt(input_value)
+                
+                let sum = 0;
+                
+                while (tempNumber > 0) {
+                    
+                    span=document.createElement('span');
+                    let spantext= document.createTextNode(`using ${tempNumber} % 10 your remainder is ${Math.floor(tempNumber %  10)} and Quotient is ${Math.floor(tempNumber / 10)}`)
+                    span.appendChild(spantext)
+                    answer.appendChild(span)
+                    
+                    span=document.createElement('span');
+                    spantext= document.createTextNode(`-> we got remainder ${Math.floor(tempNumber %  10)}`)
+                    span.appendChild(spantext)
+                    answer.appendChild(span)
+
+                    // main logic
+                    const digit = tempNumber % 10; // -> 150/10 -> 15divent /remender 3 is need | 15/10 -> 1 /remender 5 is store        | 1/10 -> 0 /remainder 1 last stay
+                    sum += Math.pow(digit, numlength); // 0 += math.pow(3,3) -> 27              | 27 +=  math.pow(5,3) -> 27+= 125 = 152 | 152 += math.pow(1,3)=>1 -> 152 += 1 = 153
+                    tempNumber = Math.floor(tempNumber / 10); //  = Math.floor (153/10) -> 15   | math.floor(15/10) -> 1                 | math..floor(1/10)-> 0
+                    //end
+
+                    span=document.createElement('span');
+                    spantext= document.createTextNode(` now using  ${digit} we get the power of this value we use length of the digit ${numlength} and so answer is ${Math.pow(digit, numlength)}`)
+                    span.appendChild(spantext)
+                    answer.appendChild(span)
+
+                    span=document.createElement('span');
+                    spantext= document.createTextNode(`we ${Math.pow(digit, numlength)} take answer and do addition that we will get total is ${sum}`)
+                    span.appendChild(spantext)
+                    answer.appendChild(span)
+                }
+
+                span=document.createElement('span');
+                spantext= document.createTextNode(`final we take that total and match to your value`)
+                span.appendChild(spantext)
+                answer.appendChild(span)
+
+                answer.appendChild(span)
+                
+                if (sum === input_value) {
+                    span=document.createElement('span');
+                    let spantext= document.createTextNode(`${input_value} is an Armstrong number.`);
+                    span.appendChild(spantext)
+                    answer.appendChild(span)
+
+                    span=document.createElement('span');
+                    spantext= document.createTextNode(`thanks for using Armstrong calculator thing`);
+                    span.appendChild(spantext)
+                    answer.appendChild(span)
+
+                } else {
+                    span=document.createElement('span');
+                    let spantext= document.createTextNode(`${input_value} is not an Armstrong number.`); // it is 153 not
+                    span.appendChild(spantext)
+                    answer.appendChild(span)
+
+                    span=document.createElement('span');
+                    spantext= document.createTextNode(`thanks for using Armstrong calculator thing`); // it is 153 not
+                    span.appendChild(spantext)
+                    answer.appendChild(span)
+                }
+            }
+        })
+    </Script>
+</body>
+</html>
