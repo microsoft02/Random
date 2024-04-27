@@ -1,4 +1,4 @@
-# 1)revserse string -> write a python to reverse a string without any buit in methods like reverse() or slicing
+# 1)revserse string -> write a python to reverse a string without any built-in methods like reverse() or slicing
 def reverse(string):
     temp=''
     for char in string:
