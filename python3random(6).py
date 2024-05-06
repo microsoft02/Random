@@ -80,7 +80,7 @@ print(str_representation)  # Output: Person: Alice, Age: 30
 
 
 #3) Explain the difference between == and is operators in Python and provide an example of when you would use each.
-->You've got the right idea! == is indeed used to compare the values of two objects, while is used to checks only whether two objects refer to the same memory location.
+# ->You've got the right idea! == is indeed used to compare the values of two objects, while is used to checks only whether two objects refer to the same memory location.
 a = [1, 2, 3]
 b = [1, 2, 3]
 c = a
