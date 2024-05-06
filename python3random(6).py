@@ -57,4 +57,34 @@ print('list1:', list1)  # Output: [1, 2, [3, 7], 4]
 print('list3:', list3)  # Output: [1, 2, [3, 6], 4]
 
 
-#2)
+#2) What is the purpose of the __str__ method in Python classes?
+# -> __str__ is use to convert the object format that is machine readble only into human readble format. mean it is used to define a string representation of an object.
+# eg.
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def __str__(self):
+        return f"Person: {self.name}, Age: {self.age}"
+
+# Creating an instance of the Person class
+person = Person("Alice", 30)
+
+# Printing the object directly
+print(person)  # Output: Person: Alice, Age: 30
+
+# Using str() function
+str_representation = str(person)
+print(str_representation)  # Output: Person: Alice, Age: 30
+
+
+#3) Explain the difference between == and is operators in Python and provide an example of when you would use each.
+->You've got the right idea! == is indeed used to compare the values of two objects, while is used to checks only whether two objects refer to the same memory location.
+a = [1, 2, 3]
+b = [1, 2, 3]
+c = a
+
+print(a == b)  # True because the values are the same
+print(a is b)  # False because they are separate objects
+print(a is c)  # True because they point to the same object
