@@ -1,0 +1,229 @@
+*{
+    margin: 0;padding: 0;box-sizing: border-box;
+}
+
+body{
+    background: #1f0442;
+}
+header a{
+    color: #fff;
+    font-size: 1.5rem;
+}
+header nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    flex-wrap: wrap;
+}
+header nav ul{
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li{
+    list-style: none;
+}
+header nav ul li a{
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+main .imgbx{
+    position: relative;
+    width: 30%;
+    aspect-ratio: 12/9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+main .imgbx::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    background: #fff;
+
+}
+main .imgbx::after{
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #aaa;
+    right: 20px;
+    top:10px;
+    box-shadow: -20px 0 #aaa,
+    -40px 0 #aaa;
+    z-index: 1;
+}
+
+main .imgbx img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+main .title{
+    color:#fff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+main .title h1{
+    font-size: 5rem;
+    width: 600px;
+}
+main .title span{
+    font-size: 1.2rem;
+    color: #f18100;
+}
+main .title p{
+    font-size: 1.2rem;
+}
+main .title button{
+    width: 150px;
+    border-radius: 50px;
+    height: 40px;
+    color: #fff;
+    background: #f18100;
+    border: none;
+}
+
+main .shape1{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background:repeating-linear-gradient(45deg,#0c011b 0% 6% ,transparent 6% 12%);
+    border-radius: 50%;
+    bottom: 5%;
+    right: 5%;
+    z-index: -1;
+}
+main .shape1::after{
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background:repeating-linear-gradient(45deg, #6ac0e2 0% 6% ,#1f0442 6% 12%);
+    border-radius: 50%;
+    bottom:5%;
+    right: 5%;
+}
+
+
+main .shape2{
+    position: absolute;
+    width: 5px;
+    height: 40px;
+    background: #f11c00;
+    top: 10%;
+    left: 30%;
+    z-index: -1;
+    
+}
+main .shape2::before{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 40px;
+    background: #f11c00;
+    transform: rotateZ(60deg) translateX(15px)translateY(-8px);
+}
+main .shape2::after{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 40px;
+    background: #f11c00;
+    transform: rotateZ(-60deg)translateX(15px) translateY(8px);
+}
+
+.shape3{
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    transform: rotateZ(45deg);
+    box-shadow: -500px -100px 0 #fff,
+    -100px 300px 0 #fff,
+    -200px 100px 0 #fff,-500px -500px 0 #fff,
+    -500px -300px 0 #fff,
+    -800px 100px 0 #fff;
+}
+
+@media screen and (max-width:900px) {
+    main .title{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-self: center;
+    }
+
+    main .title h1{
+        font-size: 4rem;
+        width: 100%;
+        text-align: center;
+    }
+    main .title span{
+        width: 100%;
+        text-align: center;
+    }
+    main .title p{
+        text-align: center;
+    }
+    main .title button{
+        align-self: center;
+    } 
+}
+
+@media screen and (max-width:700px) {
+    header nav{
+        justify-content: center;
+        gap: 40px;
+        padding: 20px 30px;
+    }
+
+    header nav ul{
+        gap: 15px;
+    }
+
+    main .imgbx{
+        position: relative;
+        width: 50%;
+        aspect-ratio: 12/9;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+}
+
+
+@media screen and (max-width:500px) {
+    header nav{
+        justify-content: center;
+        gap: 20px;
+        padding: 20px 10px;
+    }
+
+    header nav ul{
+        gap: 8px;
+        text-align: center;
+    }
+
+    main .imgbx{
+        position: relative;
+        width: 80%;
+        aspect-ratio: 12/9;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+}
