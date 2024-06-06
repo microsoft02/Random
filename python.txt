@@ -1,0 +1,40 @@
+1) what is PEP8 ?
+-> PEP8 stands for Python Enhancement Proposal-8. It is a coding style guide for Python Programming. 
+ PEP 8 is a widely recognized style guide for writing high-quality code in Python to improve the readability and maintainibility of Python code.
+
+2) what is differnet in SQL And MySQL?
+->i) SQL -> it stand for Structure Query Language. it is language.
+ii) MySQL -> is Relational Database Management System that uses SQL for storing, retriving, modifying and administrating the database
+
+3) method overriding and method overloading?
+-> i) overloading - method overloading is called compile-time polymorphism. It occurs within the class. overloading is like user pass same value but get different output because the method. doesn't need inheritance
+  eg. class math:
+    def sum (val1,val2):
+      return val1 + val2
+
+    def sub(val1, val2):
+      return val1 - val2
+
+user1 = math()
+print(user1.sum(3,2), user1,sub(3,2) -> o/p - 5 , 1
+
+ii) overriding :- method overriding is called run-time polymorphism. it need two class and inheritance, overriding it overwrite the same method of parent into child class to get different answer. need inheritance
+eg.
+class animal:
+  def leg():
+    print('four')
+
+class child(animal):
+  def leg():
+    ptint('two')
+
+user1= child()
+print(user1.leg()) -> o/p - two
+  
+
+
+--to be continue 
+4)getters and setters?
+->the main purpose of using getters and setters in object-oriented programs is to ensure data encapsulation, getters & setters use to add validation logic around getting and setting a value.
+
+, seek tell, oop, raise, try catch, 
