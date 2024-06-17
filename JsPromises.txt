@@ -1,0 +1,20 @@
+<script>
+  //js Promises Tutorial and course
+
+  let hello = new Promise(function (resolve, reject) {
+    // we made the callback function that say hi to user after 5 sec adn store in variable
+    /callback function is take argument (resolve and reject) must when we  use promises. 
+    setTimout(function () {
+      resolve('hi, user');
+    },5000);
+  }
+
+  // handling promise when it resolve
+  hello.then(function (message){
+    console.log(message)
+  }
+</script>
+
+step1:- the way is we use 100% this way like we make  "Promise then" called this callback "function(msg)" and as know we pass argument in calledback function.
+step2:- if the promise is success it go to function run. it will wait for 5 secsond due to setTimeout the inside that the resolve is method that will send the message back to original position
+step3:- message we come to where we have now called it and the it will console.log the message
