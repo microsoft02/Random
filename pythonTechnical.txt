@@ -29,6 +29,7 @@ eg.
   circle = circle(5)
   print(cirle.area())
 
+
 3) what is Encapsulation?
 -> Encapsulation is method to bind the method and data(attribute) in single unit which known as class. it helps to stop/restrict the direct access to object component and prevent the modifications.
     we have to use double underscore (__) to make private variable/attribute. this is can't be accessible nor changeable outside this class but we can access it inside class only
@@ -66,7 +67,9 @@ ii) car1._Car__brand = 'Nissian' # Accessing attributes directly (not recommende
 -> Poly mean many and morph mean form. it is good for reusablility and have flexibility.
 eg. the flow is like we pass argument the object/variable dog into function animal_speak() it get the dog class access due in function animal_speak we are printing animal.speak() it look into dog class for
     method speak which is present so it return the control back and you see the output (maybe like this happen).
+  there is 2 type here i) method overriding (runtime polymorphism)  ii) method overloading (compile-time polymorphism)
 
+i) method overriding example -> overiding can be perfrom using inheritance override the class parent method into child class.
  eg. class Animal: # this is just blueprint
       def __init__(self, name):
           self.name = name
@@ -93,6 +96,35 @@ eg. the flow is like we pass argument the object/variable dog into function anim
   animal_speak(dog)  # Output: Buddy says Woof!
   animal_speak(cat)  # Output: Whiskers says Meow!
 
+ii) method overloading -> overloading can be done within class with same name of function but have different argument taking it is example of overloading
+here the first function add is geting replace or override by below function which ahve same name as above function
+eg. 
+class Math:
+    def add(self, a, b):
+        return a + b
+    
+    def add(self, a, b, c):
+        return a + b + c
+
+# Create an instance of MathOperations
+math = Math()
+
+# Call the overloaded methods
+print(math.add(2, 3))       # Error: Python does not support traditional method overloading
+print(math.add(2, 3, 4))    # Output: 9
+
+but i guess this is accurate example ->
+class Math:
+    def add(self, a, b, c=None):
+        if c is None:
+            return a + b
+        else:
+            return a + b + c
+
+math = Math()
+print(math.add(2, 3))       # Output: 5
+print(math.add(2, 3, 4))    # Output: 9
+
 
 5) what are decorators?
 -> Decorators are a very powerful and useful tool in Python since it allows programmers to modify the behaviour of a function or class.
@@ -102,7 +134,7 @@ eg.
         self._radius = radius
 
     #@property is built-in decorator so use can use direct
-    @property # use to make any method/function behave like attribute/varibale that can be accessible without ()
+    @property # use to make any method/function behave like attribute/variable that can be accessible without ()
     def diameter(self):
         return self._radius * 2
 
@@ -123,4 +155,72 @@ eg.
   # if we haven't set as property we have to set like circle.diameter(12)
 ---------------------------
 
+6) what is generator?
+->generator in Python is a special type of iterator that allows you to generate a sequence of values lazily/slowly. Unlike normal functions that return a single value only one time and finish,
+  generators yield a sequence of values, one at a time, using the yield keyword. This makes them memory efficient and suitable for generating large datasets or infinite sequences.
 
+eg.
+  def number_generator(n):
+      num = 0
+      while num < n:
+          yield num
+          num += 1
+  
+  # Using the generator
+  gen = number_generator(5)
+  
+  # Iterating over the generator object
+  for num in gen:
+      print(num)
+
+flow maybe -> i) we first store function with parameter in variable
+    ii) for loop start here it start iterate on gen
+   iii) we stored function in gen that will run at yield the function will pause not terminate, yield send/return value back in for loop and the first value get print which is 0
+    iv) indirectly when we use yield python run method called next() this will look like this next(gen). which make the paused function continue again then it will make num + 1
+    v) again loop 1 is < 5 then goinside loop at yeild function pause and return that 1 to for loop, for loop print and again next(gen) method until while 5<5 get break. 
+
+7) Global Interpretor Lock?
+-> The Global Interpreter Lock (GIL) in Python is a mechanism to ensure that only one thread executes Python bytecode at a time. This means that even on a multi-core processor,
+    Python threads are not executed concurrently(side-by-side) but instead are executed in a serialized manner.
+    import threading module
+eg.
+  import threading
+  
+  def count_down(n):
+      while n > 0:
+          print(n)
+          n -= 1
+  
+  # Create two threads
+  t1 = threading.Thread(target=count_down, args=(10,))
+  t2 = threading.Thread(target=count_down, args=(10,))
+  
+  t1.start()
+  t2.start()
+  t1.join()
+  t2.join()
+
+flow maybe -> i) we made function than create thread using threading.Thread(target=fun_name, args=(10,))
+  ii) then we have to use start() method for that thread. and thread.join() use to wait for other thread until they finish work and join to main thread
+ iii) if there is more thread they work like this first thread will start after some time first thread stop and second thread start then after some time it stop and first start
+      until all due to thread.join(). and give output.
+  eg. t1.start()
+      t1.join()
+      t2.start()
+      t2.join()
+    here if we use .join() like this, only first thread will take all time until it finish after first finish the second thread will start which 
+      can be sometime bottleneck thing. becuase if there is something value first thread want that is only able to get through second thread. the first thread will stuck forever. 
+
+8) List and tuple?
+-> List is mutable datatype. mean once list created we can change it later. it is collection of similar or different type of datatype. list use to represent by [] square bracket.
+eg. my_list=[1,'hello',true].
+  there are few operation and method you can use with list 
+  i)operation -> concatination, replication, slicing, indexing
+  ii)method -> min(list), max(list), insert -> .insert(val,ind), appeand-> .appead(val), extend-> .extend(val,val,..), .clear, del -> del list, pop -> .pop(), reverse -> .reverse(), 
+              copy-> .copy(), count -> .count(val)
+
+tuple -> it is same as list but tuple is Immutable mean once it created can't be change later. and it represent by () round bracket.
+same method and operation as list i guess.
+
+
+9)
