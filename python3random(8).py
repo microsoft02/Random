@@ -42,4 +42,23 @@ num1 = 36
 num2 = 24
 print("GCD of", num1, "and", num2, "is:", gcd(num1, num2))
 
-3)
+# 3) palindrome checked if there is interger value but someone ask without convert the integer to string 
+def isPalindrome(x):
+    if x < 0:
+        return 'not palindrome'  # Negative numbers are not palindromes
+    
+    original_number = x
+    reversed_number = 0
+    
+    while x > 0:
+        digit = x % 10
+        reversed_number = reversed_number * 10 + digit
+        x //= 10
+    
+    return 'palindrome' if original_number == reversed_number else 'not palindrome'
+
+# Test cases
+print(isPalindrome(121))    # Output: palindrome
+print(isPalindrome(12321))  # Output: palindrome
+print(isPalindrome(123))    # Output: not palindrome
+print(isPalindrome(-121))   # Output: not palindrome (negative numbers)
