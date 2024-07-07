@@ -1,0 +1,29 @@
+1)what is Inheritance?
+-> Inheritance is simply one class inherit the method and properties of another class. the parent class it self called base class and the child class which inherit the properties and method of parent class is called derived class.
+there is 5 types of inhertiance.
+i) single inheritance - it have one parent class and one child class.
+ii) muti-level inheritance - it have one grandparent class, one parent class and one child class.
+iii) multiple inheritance - it have more than 1 parent class and one child.
+iv) hyrachical inheritance - it have one parent class and mutiple/more than 1 child class.
+v) hybrid inheritance - it mixture of all inheritance.
+
+
+2)what is Abstaction?
+-> Abstraction is process of handling complexities by hiding unnecessary information from user and only expose the desired information to user.
+for this here example. we have to import the abc module - from abc (abstract base classes) import ABC (Abstract Base Class) and abstractmethod
+eg.
+  from abc import ABC, abstractmethod
+
+  class shape(ABC):
+    def area(self):
+      pass
+
+  class circle(shape):
+    def __init__(self,value1):
+      self.val1= value1
+
+    def area(self):
+      return 3.14 * self.val1 * self.val1
+
+circle = circle(5)
+print(cirle.area())
