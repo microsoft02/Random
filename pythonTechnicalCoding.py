@@ -14,6 +14,8 @@ def reverse_Word(word):
     # reverse_string= reversed(word) # make object thing 
     # reverse_string = list(reverse_string) # for object convert to list
     # reverse_string = ''.join(reverse_string)
+    # or
+    #  reverse_string = ''.join(reverse_string)
     # return reverse_string
 
 # print(reverse_Word('hello'))
