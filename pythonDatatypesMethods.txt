@@ -1,0 +1,23 @@
+# datatype-> datatype is collection of categoried data items. there are 2 type of categories in datatype. i) Immutable datatype  ii) mutable datatype
+i) Imumutable - this datatype can't be change once element get create there is 4 type. I) string  II) number  III) boolean  IV) tuple
+  I) string - operations - • Concatination  • Replicate  • Indexing  • slicing
+              methods - • .upper()  • .lower()  • .title()  • .captalize()  • .swapcase()  • .count('char')  • .startswith('char')  • .endswith('char')  • .find('char')  • .index('char')  • len('string')  • .strip()
+
+ II) number - operations - • Concatination(addition)  • Replicate(multiplication)
+
+III) boolean - True or False
+
+IV) tuple - operations - • Concatination  • Replicate  • Indexing  • slicing
+            methods - • min(tuple)  • max(tuple)  • .count(element)  • len(tuple)  • .index()  • .sorted()  • reversed(tuple)  • ''.join(tuple)  • replace()
+
+
+ii) mutable - this datatype can be change once element get create ther is 3 type. I) list   II) set  III) dict
+  I) list - operations - • Concatination  • Replicate  • Indexing  • slicing
+            methods - • .append(val)  • .extend(val,val,..)  • insert(val,ind)  • remove(val)  • del list  • min(list)  • max(list)  • .sort() • .sorted()  • reverse(list)  • reversed(list) • copy()
+
+II) set - operations - • Concatination  • Replicate 
+          methods - • min(set)  • max(set) • add(val)  • remove(element)  • pop() • set.union(new_set)  • set.difference(new_Set)  • set.intersection(new_set) • discard(val)
+
+III) dict - methods - • .pop(key)  • .popitem(key)  • .keys() • .values()  • dict[key].update(old,new) • .clear() • copy()  • .items()
+
+---- details soon ----
