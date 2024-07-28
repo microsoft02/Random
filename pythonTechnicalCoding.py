@@ -140,3 +140,49 @@ t1.start()
 t2.start()
 t1.join()
 t2.join()
+
+
+9) arrange the list l1=[6,9,3,1] decline l1=[9,6,3,1] without using any built it method (probably need to create custom function)(bit confusing but go stepwise)
+-> 
+def rearrange(myList):
+  # first check if there only 1 or less than 1 element in list? if then return
+  if len(myList) <= 1:
+    return myList
+  else:
+    for i in range(len(myList)):                                 #mean range(0(default,4(list length)) so it will go index 0,1,2,3
+      max_ind = i                                                # so at first we store 0 ind as max ind
+      for j in range(i+1,len(myList)):                           # and here we adding 1 in i mean 0+1, 4(list length)
+        if myList[j] > myList[i]:                                #then here mylist[1] greater than myList[0] -> 9 > 6 -> true # like this inner loop continue until range 1,2,3 time and compare the value
+          max_ind = j                                            # so we store max_ind = 1    
+      myList[i],myList[max_ind] =  myList[max_ind],myList[i]     # then we swap as mylist[0] ,myList[1]  =  myList[1], myList[0] -> mean  [6],[9] = [9], [6]
+  return myList                                                  # finally we return it's outside loop 
+
+l1=[6,9,3,1]
+rearrange(l1)
+
+
+10)merge two dict dict1 = {'a': 1, 'b': 2, 'c': 3} and dict2 = {'b': 3, 'c': 4, 'd': 5} and get ans dict3 = {'a': 1, 'b': 5, 'c': 7, 'd': 5}. only this method is bit simple.
+->
+def mergeing_dicts(dict1, dict2):
+    result = dict(dict1)         # Start with a copy of dict1  for match with dict2 items
+    for k, v in dict2.items():   # for dict you can or you have to use two varaible if want to make key and value seperate inside variable, dict2.items() -> items return the dict element with key and value in tuple and this tuple are inside list
+        result[k] = result.get(k, 0) + v   # result have all dict1 key and vlaue so in k we have stored only key name so result[k] mean a <- which was in dict1 a = result.get(a,0(default)) + v , get method you have to pass the key which is a
+                                          # and v is the value from dict2 it will get add in value of dict1. loop will repeat until all dict done
+    return result                  # then retun result
+
+dict1 = {'a': 1, 'b': 2, 'c': 3}
+dict2 = {'b': 3, 'c': 4, 'd': 5}
+
+dict3 = mergeing_dicts(dict1, dict2) # send both dict in function
+
+print(dict3)
+
+  # way2 there other way some built in thing called collections it have counter which count the lement how many time it occurance here how and counter give dict in tuple dict keys are in descending order.
+
+from collections import Counter
+dict1 = {'a': 1, 'b': 2, 'c': 3}
+dict2 = {'b': 3, 'c': 4, 'd': 5}
+                                                #also you can not concat two dict therefore counter good they count and convert into tuple you can concate tuple.
+dict3 = dict(Counter(dict1) + Counter(dict2))  #-> counter will give answer like this for dict1 -> ({'c':3,'b':2,'a':1})  and due it's return tuple we convert it to dict using dict
+
+print(dict3)
