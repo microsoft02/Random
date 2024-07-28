@@ -142,8 +142,7 @@ t1.join()
 t2.join()
 
 
-9) arrange the list l1=[6,9,3,1] decline l1=[9,6,3,1] without using any built it method (probably need to create custom function)(bit confusing but go stepwise)
--> 
+#9) arrange the list l1=[6,9,3,1] decline l1=[9,6,3,1] without using any built it method (probably need to create custom function)(bit confusing but go stepwise) 
 def rearrange(myList):
   # first check if there only 1 or less than 1 element in list? if then return
   if len(myList) <= 1:
@@ -161,8 +160,7 @@ l1=[6,9,3,1]
 rearrange(l1)
 
 
-10)merge two dict dict1 = {'a': 1, 'b': 2, 'c': 3} and dict2 = {'b': 3, 'c': 4, 'd': 5} and get ans dict3 = {'a': 1, 'b': 5, 'c': 7, 'd': 5}. only this method is bit simple.
-->
+#10)merge two dict dict1 = {'a': 1, 'b': 2, 'c': 3} and dict2 = {'b': 3, 'c': 4, 'd': 5} and get ans dict3 = {'a': 1, 'b': 5, 'c': 7, 'd': 5}. only this method is bit simple.
 def mergeing_dicts(dict1, dict2):
     result = dict(dict1)         # Start with a copy of dict1  for match with dict2 items
     for k, v in dict2.items():   # for dict you can or you have to use two varaible if want to make key and value seperate inside variable, dict2.items() -> items return the dict element with key and value in tuple and this tuple are inside list
